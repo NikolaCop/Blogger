@@ -9,16 +9,16 @@ namespace Blogger.Controllers
     [Route("api/[controller]")]
     public class CommentssController : ControllerBase
     {
-        private readonly CommentssService _service;
+        private readonly CommentsService _service;
 
-        public CommentssController(CommentssService service)
+        public CommentssController(CommentsService service)
         {
             _service = service;
         }
 
 
         [HttpGet] //Get
-        public ActionResult<IEnumerable<Comments>> Get()
+        public ActionResult<IEnumerable<Comment>> Get()
         {
             try
             {
@@ -31,7 +31,7 @@ namespace Blogger.Controllers
         }
 
         [HttpGet("{commentssId}")] //Get By ID
-        public ActionResult<Comments> GetById(string commentssId)
+        public ActionResult<Comment> GetById(string commentssId)
         {
             try
             {
@@ -44,12 +44,12 @@ namespace Blogger.Controllers
         }
 
         [HttpPut("{commentssId}")] //EDIT
-        public ActionResult<Comments> editCommentss(string commentsId, Comments editCommentss)
+        public ActionResult<Comment> editComments(string commentId, Comment editComments)
         {
             try
             {
-                editCommentss.commentsId = commentsId;
-                return Ok(_service.Edit(editCommentss));
+                editComments.CommentId = commentId;
+                return Ok(_service.Edit(editComments));
 
             }
             catch (System.Exception err)
@@ -60,7 +60,7 @@ namespace Blogger.Controllers
 
 
         [HttpPost] //Create
-        public ActionResult<Comments> Create([FromBody] Comments newCommentss)
+        public ActionResult<Comment> Create([FromBody] Comment newCommentss)
         {
             try
             {
@@ -73,7 +73,7 @@ namespace Blogger.Controllers
         }
 
         [HttpDelete("{id}")] //Delort
-        public ActionResult<string> DeleteCommentss(string id)
+        public ActionResult<string> DeleteComments(string id)
         {
             try
             {

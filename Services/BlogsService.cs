@@ -49,6 +49,11 @@ namespace Blogger.Services
             return _repo.Edit(original);
         }
 
+        internal object GetBlogsByProfileId(string id)
+        {
+            throw new NotImplementedException();
+        }
+
         //DELORT
         internal Blog Delete(string id)
         {

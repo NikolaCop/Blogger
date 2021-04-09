@@ -11,9 +11,9 @@ namespace Blogger.Controllers
     public class BlogsController : ControllerBase
     {
         private readonly BlogsService _service;
-        private readonly KnightsService _Kservice;
+        private readonly CommentsService _Kservice;
 
-        public BlogssController(BlogsService service, KnightsService Kservice)
+        public BlogsController(BlogsService service, CommentsService Kservice)
         {
             _service = service;
             _Kservice = Kservice;
@@ -48,7 +48,7 @@ namespace Blogger.Controllers
         }
 
         [HttpGet("{id}/comments")]   //GET COMMENTS BY BLOG ID
-        public ActionResult<IEnumerable<Comments>> GetComments(int id)
+        public ActionResult<IEnumerable<Comment>> GetComments(int id)
         {
             try
             {

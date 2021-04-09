@@ -45,12 +45,17 @@ namespace Blogger.Services
         //EDIT/PUT
         internal Comment Edit(Comment editComments)
         {
-            Comment original = GetById(editComments.commentId);
+            Comment original = GetById(editComments.CommentId);
 
-            original.Name = editComments.Name != null ? editComments.Name : original.Name;
-            original.CastleId = editComments.CastleId != null ? editComments.CastleId : original.CastleId;
+            // original.Name = editComments.Name != null ? editComments.Name : original.Name;
+            // original.CastleId = editComments.CastleId != null ? editComments.CastleId : original.CastleId;
 
             return _repo.Edit(original);
+        }
+
+        internal object GetByBlogId(int id)
+        {
+            throw new NotImplementedException();
         }
 
         //DELORT

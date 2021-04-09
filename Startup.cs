@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Blogger.Repositories;
+using Blogger.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -38,8 +41,16 @@ namespace Blogger
             //BLOGS
             services.AddTransient<BlogsService>();
             services.AddTransient<BlogsRepository>();
+            //PROFILES
+            services.AddTransient<ProfilesService>();
+            services.AddTransient<ProfilesRepository>();
 
             services.AddScoped<IDbConnection>(x => CreateDbConnection());
+        }
+
+        private IDbConnection CreateDbConnection()
+        {
+            throw new NotImplementedException();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
