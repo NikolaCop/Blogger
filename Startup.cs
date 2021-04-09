@@ -50,7 +50,8 @@ namespace Blogger
 
         private IDbConnection CreateDbConnection()
         {
-            throw new NotImplementedException();
+            string connectionString = Configuration["db:gearhost"];
+            return new MySqlConnection(connectionString);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
