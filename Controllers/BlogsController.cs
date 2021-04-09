@@ -11,12 +11,12 @@ namespace Blogger.Controllers
     public class BlogsController : ControllerBase
     {
         private readonly BlogsService _service;
-        private readonly CommentsService _Kservice;
+        private readonly CommentsService _Cservice;
 
-        public BlogsController(BlogsService service, CommentsService Kservice)
+        public BlogsController(BlogsService service, CommentsService Cservice)
         {
             _service = service;
-            _Kservice = Kservice;
+            _Cservice = Cservice;
         }
 
 
@@ -52,7 +52,7 @@ namespace Blogger.Controllers
         {
             try
             {
-                return Ok(_Kservice.GetByBlogId(id));
+                return Ok(_Cservice.GetByBlogId(id));
             }
             catch (Exception e)
             {

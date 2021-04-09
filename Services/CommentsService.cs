@@ -30,9 +30,9 @@ namespace Blogger.Services
             return comments;
         }
 
-        internal IEnumerable<Comment> GetByCastleId(int id)
+        internal IEnumerable<Comment> GetByBlogId(int id)
         {
-            return _repo.GetByCastleId(id);
+            return _repo.GetByBlogId(id);
         }
 
 
@@ -51,11 +51,6 @@ namespace Blogger.Services
             // original.CastleId = editComments.CastleId != null ? editComments.CastleId : original.CastleId;
 
             return _repo.Edit(original);
-        }
-
-        internal object GetByBlogId(int id)
-        {
-            throw new NotImplementedException();
         }
 
         //DELORT

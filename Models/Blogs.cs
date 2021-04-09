@@ -5,11 +5,11 @@ namespace Blogger.Models
         internal int id;
         internal string blogId;
 
-        public Blog(string make, string model, int year)
+        public Blog(string title, string body, int year)
         {
-            // Make = make;
-            // Model = model;
-            // Year = year;
+            Title = title;
+            Body = body;
+
         }
 
         public Blog()
@@ -17,9 +17,8 @@ namespace Blogger.Models
 
         }
 
-        // public string Make { get; set; }
-        // public string Model { get; set; }
-        // public int? Year { get; set; }
-        // public int Id { get; private set; }
+        public string Title { get; set; }
+        public string Body { get; set; }
+        public int Id { get; private set; }
     }
 }

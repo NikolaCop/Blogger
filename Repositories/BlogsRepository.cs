@@ -30,9 +30,9 @@ namespace Blogger.Repositories
         {
             string sql = @"
       INSERT INTO blogs
-      (make, model, year)
+      (title, body)
       VALUES
-      (@Make, @Model, @Year);
+      (@Title, @Body);
       SELECT LAST_INSERT_ID();";
             int id = _db.ExecuteScalar<int>(sql, newBlog);
             newBlog.id = id;
@@ -44,9 +44,8 @@ namespace Blogger.Repositories
             string sql = @"
       UPDATE blogss
       SET
-          make = @Make,
-          model = @Model,
-          year = @Year
+          title = @Title,
+          body = @Body
           WHERE id = @Id;
           SELECT * FROM blogs WHERE id = @Id;";
             return _db.QueryFirstOrDefault<Blog>(sql, blogsToEdit);

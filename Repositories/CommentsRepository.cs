@@ -26,9 +26,9 @@ namespace Blogger.Repositories
             return _db.QueryFirstOrDefault<Comment>(sql, new { Id });
         }
 
-        internal IEnumerable<Comment> GetByCastleId(int id)
+        internal IEnumerable<Comment> GetByBlogId(int id)
         {
-            string sql = "SELECT * FROM castle WHERE commentId = @id";
+            string sql = "SELECT * FROM blog WHERE commentId = @id";
             return _db.Query<Comment>(sql, new { id });
         }
 
@@ -36,7 +36,7 @@ namespace Blogger.Repositories
         {
             string sql = @"
       INSERT INTO commentss
-      (name, castleId)
+      (body, blogId)
       VALUES
       (@Name, @CastleId);
       SELECT LAST_INSERT_ID();";
@@ -48,10 +48,10 @@ namespace Blogger.Repositories
         internal Comment Edit(Comment commentsToEdit)          //EDIT
         {
             string sql = @"
-      UPDATE commentss
+      UPDATE comments
       SET
-          name = @Name,
-          castleId = @CastleId,
+          body = @Body,
+          blogId = @BlogId,
           WHERE id = @Id;
           SELECT * FROM commentss WHERE id = @Id;";
             return _db.QueryFirstOrDefault<Comment>(sql, commentsToEdit);

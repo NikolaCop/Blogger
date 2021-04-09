@@ -5,9 +5,9 @@ namespace Blogger.Models
         internal int id;
         internal string CommentId;
 
-        public Comment(string name, int blogId)
+        public Comment(string body, int blogId)
         {
-            Name = name;
+            Body = body;
             BlogId = BlogId;
         }
 
@@ -16,7 +16,8 @@ namespace Blogger.Models
 
         }
 
-        public string Name { get; set; }
+        public string Body { get; set; }
+
         public int? BlogId { get; set; }
     }
 }
