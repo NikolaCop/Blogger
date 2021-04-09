@@ -47,7 +47,7 @@ namespace Blogger.Controllers
             }
         }
 
-        [HttpGet("{id}/comments")]
+        [HttpGet("{id}/comments")]   //GET COMMENTS BY BLOG ID
         public ActionResult<IEnumerable<Comments>> GetComments(int id)
         {
             try

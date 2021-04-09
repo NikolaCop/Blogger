@@ -32,6 +32,14 @@ namespace Blogger
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Blogger", Version = "v1" });
             });
+            //COMMENTS
+            services.AddTransient<CommentsService>();
+            services.AddTransient<CommentsRepository>();
+            //BLOGS
+            services.AddTransient<BlogsService>();
+            services.AddTransient<BlogsRepository>();
+
+            services.AddScoped<IDbConnection>(x => CreateDbConnection());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
